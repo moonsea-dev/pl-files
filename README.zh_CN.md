@@ -2,11 +2,11 @@
 
 [English](README.md) | [简体中文](README.zh_CN.md) | [繁體中文](README.zh_TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
 
-[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/coding1688/pl-files)
+[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/moonsea-dev/pl-files)
 
-## 0.5.0 版本基线
+## 0.6.0 升级说明
 
-三个 Moonsea 包统一从 `v0.5.0` 重新开始。原标签和 GitHub Releases 已清理，提交历史保留。请显式更新 Composer 版本约束和锁文件。这是新的版本基线，不是从已移除版本自动升级。
+`v0.6.0` 使用 Composer 包名 `moonsea-dev/pl-files` 和 PHP 命名空间 `Moonsea\Files`。请替换原包依赖，更新应用中的类引用及已发布配置，再更新 Composer 锁文件并重建配置缓存。保留已有 `v0.5.0` 标签。本次更改包标识，不更改数据库表名或配置键。
 
 files 初始迁移现在直接创建可空 JSON 字段 `preferred_disks`，独立补列迁移已移除。现有数据库不会重跑初始迁移。使用此基线前，请检查配置的数据表：缺少该列时通过宿主迁移补齐；已有该列则保留数据。不要对需要保留数据的数据库执行 `migrate:fresh`。历史迁移记录可能仍引用已移除文件，切换前请检查回滚方案。
 
@@ -32,7 +32,7 @@ files 初始迁移现在直接创建可空 JSON 字段 `preferred_disks`，独�
 ## 安装
 
 ```bash
-composer require coding1688/pl-files
+composer require "moonsea-dev/pl-files:^0.6"
 php artisan vendor:publish --tag=files-config
 php artisan migrate
 ```
@@ -40,7 +40,7 @@ php artisan migrate
 如果 Composer 当前配置的软件源找不到此包，请先添加源码仓库再安装：
 
 ```bash
-composer config repositories.pl-files vcs https://github.com/coding1688/pl-files.git
+composer config repositories.pl-files vcs https://github.com/moonsea-dev/pl-files.git
 ```
 
 Laravel 自动发现 `FilesServiceProvider`。公开本地文件需配置 `public` 磁盘并运行 `php artisan storage:link`。基础本地安装不需要云账号或队列进程。
@@ -71,7 +71,7 @@ Laravel 自动发现 `FilesServiceProvider`。公开本地文件需配置 `publi
 在已授权的控制器操作中：
 
 ```php
-use Coding1688\Files\FileStorage;
+use Moonsea\Files\FileStorage;
 
 $request->validate(['file' => ['required', 'file', 'mimes:jpg,png', 'max:2048']]);
 
@@ -87,7 +87,7 @@ $attributes = $stored->toArray();
 
 `store()` 写入文件并返回 `StoredFile`，不会创建数据库记录，也不会完成业务授权或校验。磁盘、目录和可见性应由服务端选择。按需保存返回的元数据；数据库写入失败时清理未使用的文件。
 
-如需协调上传和文件记录管理，可将已校验输入传给 `Coding1688\Files\Management\FileService`，或启用下方管理 API。
+如需协调上传和文件记录管理，可将已校验输入传给 `Moonsea\Files\Management\FileService`，或启用下方管理 API。
 
 ## 可选管理 API
 
@@ -194,4 +194,4 @@ composer test
 
 MIT。参见 [LICENSE](LICENSE)。
 
-Copyright © 2026 [coding1688 · Moonsea](https://moonsea.dev).
+Copyright © 2026 [moonsea-dev · Moonsea](https://moonsea.dev).

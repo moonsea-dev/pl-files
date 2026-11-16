@@ -1,9 +1,9 @@
 <?php
 
-namespace Coding1688\Files\Concerns;
+namespace Moonsea\Files\Concerns;
 
-use Coding1688\Files\ImageLinks;
-use Coding1688\Files\ModelResolver;
+use Moonsea\Files\ImageLinks;
+use Moonsea\Files\ModelResolver;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Validation\ValidationException;

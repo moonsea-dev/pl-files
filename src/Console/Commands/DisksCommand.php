@@ -1,9 +1,9 @@
 <?php
 
-namespace Coding1688\Files\Console\Commands;
+namespace Moonsea\Files\Console\Commands;
 
-use Coding1688\Files\ModelResolver;
-use Coding1688\Files\StorageRegistry;
+use Moonsea\Files\ModelResolver;
+use Moonsea\Files\StorageRegistry;
 use Illuminate\Console\Command;
 
 class DisksCommand extends Command

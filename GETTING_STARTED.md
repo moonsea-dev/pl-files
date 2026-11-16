@@ -1,15 +1,15 @@
 # Getting started
 
-Maintained by [coding1688 / Moonsea](https://moonsea.dev). MIT licensed.
+Maintained by [moonsea-dev / Moonsea](https://moonsea.dev). MIT licensed.
 
-Install with Composer. If the package is not available from your configured registry, add its GitHub VCS repository to your application's composer.json first. The existing package name and PHP namespace are unchanged. Laravel discovers the service provider automatically.
+Install with Composer. If the package is not available from your configured registry, add its GitHub VCS repository to your application's composer.json first. Version 0.6.0 uses `moonsea-dev/pl-files` and namespace `Moonsea\Files`. When upgrading, replace the previous Composer requirement and update class references in application code and published configuration before rebuilding caches. Laravel discovers the service provider automatically.
 
 Configuration precedence is: package defaults < legacy `pl.files` < `files`. New applications should use only `config/files.php`. Old `pl.*` values are accepted at provider registration time; runtime overrides must use the canonical key. Maps merge and lists replace (including an empty list). After changing cached configuration, rebuild your application's configuration cache.
 
 ## Basic upload
 
 ```bash
-composer require coding1688/pl-files
+composer require "moonsea-dev/pl-files:^0.6"
 php artisan vendor:publish --tag=files-config
 php artisan migrate
 php artisan storage:link
@@ -19,7 +19,7 @@ The package uses the host Laravel filesystem disks. Local/public upload does not
 
 ```php
 $request->validate(['file' => ['required', 'file', 'max:2048']]);
-$stored = app(\Coding1688\Files\FileStorage::class)
+$stored = app(\Moonsea\Files\FileStorage::class)
     ->store($request->file('file'), 'public', 'uploads');
 ```
 
@@ -77,7 +77,7 @@ Authentication and this Gate are both required, including if you override the mi
 
 Paths are relative to the configured prefix. Route names start with `files.management.`. Requests should send `Accept: application/json`; uploads use multipart `files[]`. Responses use `data`; file pagination also includes `total` and `last_page`. File upload/storage creation return 201 and sync/retry return 202. Account resources expose credential-presence flags, never credential values. This API grants global storage-administration access; tenant isolation must be implemented by a host adapter, not inferred from the authenticated user ID.
 
-For your own controllers, inject `Coding1688\Files\Management\FileService` or `FileStorageAccountService`, and reuse `Http\Requests` and `Http\Resources`. Service inputs must already be validated. Direct service calls are trusted application operations: your application is responsible for authorization and tenant scoping. The `store()` method intentionally supports already-authorized business upload flows.
+For your own controllers, inject `Moonsea\Files\Management\FileService` or `FileStorageAccountService`, and reuse `Http\Requests` and `Http\Resources`. Service inputs must already be validated. Direct service calls are trusted application operations: your application is responsible for authorization and tenant scoping. The `store()` method intentionally supports already-authorized business upload flows.
 
 Bind a subclass of `Management\ManagementContext` to integrate actor IDs, authorization and transactional audit. The default uses the configured auth guard and emits `files.management.audit` with action, subject, changes and actor ID. A custom context can preserve a host's existing audit tables and permission checks. Do not put credentials into audit metadata.
 

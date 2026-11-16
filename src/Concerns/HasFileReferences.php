@@ -1,9 +1,9 @@
 <?php
 
-namespace Coding1688\Files\Concerns;
+namespace Moonsea\Files\Concerns;
 
-use Coding1688\Files\FileReferences;
-use Coding1688\Files\ModelResolver;
+use Moonsea\Files\FileReferences;
+use Moonsea\Files\ModelResolver;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasFileReferences

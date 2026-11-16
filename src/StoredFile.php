@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding1688\Files;
+namespace Moonsea\Files;
 
 final readonly class StoredFile
 {

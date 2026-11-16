@@ -1,8 +1,8 @@
 <?php
 
-namespace Coding1688\Files\Http\Resources;
+namespace Moonsea\Files\Http\Resources;
 
-use Coding1688\Files\UploadConfiguration;
+use Moonsea\Files\UploadConfiguration;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

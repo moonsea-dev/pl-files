@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding1688\Files\Http\Requests;
+namespace Moonsea\Files\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

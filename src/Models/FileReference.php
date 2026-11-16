@@ -1,8 +1,8 @@
 <?php
 
-namespace Coding1688\Files\Models;
+namespace Moonsea\Files\Models;
 
-use Coding1688\Files\ModelResolver;
+use Moonsea\Files\ModelResolver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;

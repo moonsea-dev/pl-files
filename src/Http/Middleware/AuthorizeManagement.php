@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding1688\Files\Http\Middleware;
+namespace Moonsea\Files\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

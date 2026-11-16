@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding1688\Files\Constants;
+namespace Moonsea\Files\Constants;
 
 enum FileType: string
 {

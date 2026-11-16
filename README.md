@@ -4,11 +4,11 @@
 
 File uploads, reference tracking, configurable storage accounts and verified replication for Laravel.
 
-[Moonsea](https://moonsea.dev) · [Source](https://github.com/coding1688/pl-files) · [Issues](https://github.com/coding1688/pl-files/issues) · [Getting started](GETTING_STARTED.md)
+[Moonsea](https://moonsea.dev) · [Source](https://github.com/moonsea-dev/pl-files) · [Issues](https://github.com/moonsea-dev/pl-files/issues) · [Getting started](GETTING_STARTED.md)
 
-## Version 0.5.0 baseline
+## Version 0.6.0 migration
 
-The three Moonsea packages restart at `v0.5.0`. Earlier tags and GitHub Releases have been removed; commit history remains. Update Composer version constraints and lock files explicitly. This is a new version baseline, not an automatic upgrade from the removed releases.
+Version `v0.6.0` uses Composer package `moonsea-dev/pl-files` and PHP namespace `Moonsea\Files`. Replace the previous package requirement, update application imports and published configuration, then update the Composer lock file and rebuild configuration caches. Existing `v0.5.0` tags remain available. This release changes package identity; it does not rename database tables or configuration keys.
 
 The initial files migration now creates nullable JSON `preferred_disks`; the separate add-column migration has been removed. Existing databases do not rerun the initial migration. Before using this baseline, check the configured configuration table: if the column is missing, add it through a host migration; if present, keep its data. Do not run `migrate:fresh` on a database containing data you need. Historical migration records may refer to the removed file, so review rollback plans before switching versions.
 
@@ -32,7 +32,7 @@ Local storage uses Laravel filesystem disks. S3-compatible drivers additionally 
 ## Installation
 
 ```bash
-composer require coding1688/pl-files
+composer require "moonsea-dev/pl-files:^0.6"
 php artisan vendor:publish --tag=files-config
 php artisan migrate
 ```
@@ -40,7 +40,7 @@ php artisan migrate
 If Composer cannot find the package through your configured registry, add the source repository before installing:
 
 ```bash
-composer config repositories.pl-files vcs https://github.com/coding1688/pl-files.git
+composer config repositories.pl-files vcs https://github.com/moonsea-dev/pl-files.git
 ```
 
 Laravel discovers `FilesServiceProvider` automatically. For public local files, configure the `public` disk and run `php artisan storage:link`. A basic local installation does not need a cloud account or queue worker.
@@ -71,7 +71,7 @@ Business-table foreign keys are owned by host migrations. `owner_tables` exists 
 Inside an authorized controller action:
 
 ```php
-use Coding1688\Files\FileStorage;
+use Moonsea\Files\FileStorage;
 
 $request->validate(['file' => ['required', 'file', 'mimes:jpg,png', 'max:2048']]);
 
@@ -87,7 +87,7 @@ $attributes = $stored->toArray();
 
 `store()` writes bytes and returns a `StoredFile`; it does not create a database row or authorize/validate your business operation. Choose disk, directory and visibility on the server. Persist the returned metadata when needed, and clean up unused bytes if your database write fails.
 
-For coordinated uploads and file-record management, use `Coding1688\Files\Management\FileService` with validated inputs or enable the management API below.
+For coordinated uploads and file-record management, use `Moonsea\Files\Management\FileService` with validated inputs or enable the management API below.
 
 ## Optional management API
 
@@ -194,4 +194,4 @@ Before upgrading, review configuration precedence, model/table overrides, legacy
 
 MIT. See [LICENSE](LICENSE).
 
-Copyright © 2026 [coding1688 · Moonsea](https://moonsea.dev).
+Copyright © 2026 [moonsea-dev · Moonsea](https://moonsea.dev).

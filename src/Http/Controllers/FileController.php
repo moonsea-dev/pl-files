@@ -1,10 +1,10 @@
 <?php
 
-namespace Coding1688\Files\Http\Controllers;
+namespace Moonsea\Files\Http\Controllers;
 
-use Coding1688\Files\Http\Requests\FileRequest;
-use Coding1688\Files\Http\Resources\FileResource;
-use Coding1688\Files\Management\FileService;
+use Moonsea\Files\Http\Requests\FileRequest;
+use Moonsea\Files\Http\Resources\FileResource;
+use Moonsea\Files\Management\FileService;
 use Illuminate\Http\JsonResponse;
 
 class FileController extends ManagementController

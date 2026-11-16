@@ -1,11 +1,11 @@
 <?php
 
-namespace Coding1688\Files\Console\Commands;
+namespace Moonsea\Files\Console\Commands;
 
-use Coding1688\Files\Jobs\FileSyncBatch;
-use Coding1688\Files\ModelResolver;
-use Coding1688\Files\StorageRegistry;
-use Coding1688\Files\StorageSynchronizer;
+use Moonsea\Files\Jobs\FileSyncBatch;
+use Moonsea\Files\ModelResolver;
+use Moonsea\Files\StorageRegistry;
+use Moonsea\Files\StorageSynchronizer;
 use Illuminate\Console\Command;
 
 class SyncCommand extends Command

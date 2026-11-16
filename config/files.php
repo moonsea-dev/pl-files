@@ -1,11 +1,11 @@
 <?php
 
-use Coding1688\Files\Models\File;
-use Coding1688\Files\Models\FileConfiguration;
-use Coding1688\Files\Models\FileReference;
-use Coding1688\Files\Models\FileReplica;
-use Coding1688\Files\Models\FileStorageAccount;
-use Coding1688\Files\Models\FileSyncTask;
+use Moonsea\Files\Models\File;
+use Moonsea\Files\Models\FileConfiguration;
+use Moonsea\Files\Models\FileReference;
+use Moonsea\Files\Models\FileReplica;
+use Moonsea\Files\Models\FileStorageAccount;
+use Moonsea\Files\Models\FileSyncTask;
 
 return [
     'management' => [

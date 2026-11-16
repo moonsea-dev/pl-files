@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding1688\Files\Models;
+namespace Moonsea\Files\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

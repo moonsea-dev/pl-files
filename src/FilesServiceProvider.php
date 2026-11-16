@@ -1,11 +1,11 @@
 <?php
 
-namespace Coding1688\Files;
+namespace Moonsea\Files;
 
-use Coding1688\Files\Console\Commands\DisksCommand;
-use Coding1688\Files\Console\Commands\FailoverCommand;
-use Coding1688\Files\Console\Commands\SmokeCommand;
-use Coding1688\Files\Console\Commands\SyncCommand;
+use Moonsea\Files\Console\Commands\DisksCommand;
+use Moonsea\Files\Console\Commands\FailoverCommand;
+use Moonsea\Files\Console\Commands\SmokeCommand;
+use Moonsea\Files\Console\Commands\SyncCommand;
 use Illuminate\Support\ServiceProvider;
 
 class FilesServiceProvider extends ServiceProvider

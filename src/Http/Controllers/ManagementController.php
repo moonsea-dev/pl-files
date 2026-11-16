@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding1688\Files\Http\Controllers;
+namespace Moonsea\Files\Http\Controllers;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;

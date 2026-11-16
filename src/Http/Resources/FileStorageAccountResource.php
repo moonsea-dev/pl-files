@@ -1,9 +1,9 @@
 <?php
 
-namespace Coding1688\Files\Http\Resources;
+namespace Moonsea\Files\Http\Resources;
 
-use Coding1688\Files\ModelResolver;
-use Coding1688\Files\StorageRegistry;
+use Moonsea\Files\ModelResolver;
+use Moonsea\Files\StorageRegistry;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

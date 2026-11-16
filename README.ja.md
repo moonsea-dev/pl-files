@@ -2,11 +2,11 @@
 
 [English](README.md) | [简体中文](README.zh_CN.md) | [繁體中文](README.zh_TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
 
-[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/coding1688/pl-files)
+[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/moonsea-dev/pl-files)
 
-## バージョン 0.5.0 の基準
+## 0.6.0 への移行
 
-3 つの Moonsea パッケージは `v0.5.0` から再開します。以前のタグと GitHub Releases は削除し、コミット履歴は保持しています。Composer のバージョン制約とロックファイルを明示的に更新してください。これは新しいバージョン基準であり、削除したリリースからの自動更新ではありません。
+`v0.6.0` の Composer パッケージ名は `moonsea-dev/pl-files`、PHP 名前空間は `Moonsea\Files` です。以前のパッケージ依存を置き換え、アプリケーションのクラス参照と公開済み設定を更新してから、Composer ロックファイルと設定キャッシュを更新してください。既存の `v0.5.0` タグは保持します。このリリースではパッケージの識別子を変更しますが、データベースのテーブル名や設定キーは変更しません。
 
 files の初期マイグレーションが nullable な JSON カラム `preferred_disks` を作成するようになり、個別のカラム追加マイグレーションは削除しました。既存 DB では初期マイグレーションを再実行しません。移行前に設定対象テーブルを確認し、カラムがなければホスト側のマイグレーションで追加し、既にあればデータを保持してください。必要なデータがある DB で `migrate:fresh` を実行しないでください。履歴に削除済みファイルへの参照が残る場合があるため、切り替え前にロールバック計画を確認してください。
 
@@ -32,7 +32,7 @@ Vue コンポーネントや管理画面テーマは含みません。認証、�
 ## インストール
 
 ```bash
-composer require coding1688/pl-files
+composer require "moonsea-dev/pl-files:^0.6"
 php artisan vendor:publish --tag=files-config
 php artisan migrate
 ```
@@ -40,7 +40,7 @@ php artisan migrate
 Composer の設定済みレジストリで見つからない場合は、先にソースリポジトリを追加してください。
 
 ```bash
-composer config repositories.pl-files vcs https://github.com/coding1688/pl-files.git
+composer config repositories.pl-files vcs https://github.com/moonsea-dev/pl-files.git
 ```
 
 Laravel は `FilesServiceProvider` を自動検出します。ローカルファイルを公開する場合は `public` ディスクを設定し、`php artisan storage:link` を実行します。基本的なローカル構成にはクラウドアカウントやキューワーカーは不要です。
@@ -71,7 +71,7 @@ Laravel は `FilesServiceProvider` を自動検出します。ローカルファ
 認可済みのコントローラー処理内で使用します。
 
 ```php
-use Coding1688\Files\FileStorage;
+use Moonsea\Files\FileStorage;
 
 $request->validate(['file' => ['required', 'file', 'mimes:jpg,png', 'max:2048']]);
 
@@ -87,7 +87,7 @@ $attributes = $stored->toArray();
 
 `store()` はファイルを書き込み `StoredFile` を返します。データベースレコードの作成や業務処理の認可・検証は行いません。ディスク、ディレクトリ、公開範囲はサーバー側で決定してください。必要に応じてメタデータを保存し、DB 書き込み失敗時には不要なファイルを削除します。
 
-アップロードとレコード管理を連携させるには、検証済み入力を `Coding1688\Files\Management\FileService` に渡すか、次の管理 API を有効にします。
+アップロードとレコード管理を連携させるには、検証済み入力を `Moonsea\Files\Management\FileService` に渡すか、次の管理 API を有効にします。
 
 ## 任意の管理 API
 
@@ -194,4 +194,4 @@ composer test
 
 MIT。[LICENSE](LICENSE) を参照してください。
 
-Copyright © 2026 [coding1688 · Moonsea](https://moonsea.dev).
+Copyright © 2026 [moonsea-dev · Moonsea](https://moonsea.dev).

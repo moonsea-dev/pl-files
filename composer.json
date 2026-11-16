@@ -1,5 +1,5 @@
 {
-    "name": "coding1688/pl-files",
+    "name": "moonsea-dev/pl-files",
     "description": "Reusable file upload, reference tracking, multi-disk storage and replication for Laravel applications.",
     "type": "library",
     "license": "MIT",
@@ -26,18 +26,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Coding1688\\Files\\": "src/"
+            "Moonsea\\Files\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Coding1688\\Files\\Tests\\": "tests/"
+            "Moonsea\\Files\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Coding1688\\Files\\FilesServiceProvider"
+                "Moonsea\\Files\\FilesServiceProvider"
             ]
         }
     },
@@ -55,14 +55,14 @@
     ],
     "authors": [
         {
-            "name": "coding1688",
+            "name": "Moonsea",
             "homepage": "https://moonsea.dev"
         }
     ],
     "homepage": "https://moonsea.dev",
     "support": {
-        "issues": "https://github.com/coding1688/pl-files/issues",
-        "source": "https://github.com/coding1688/pl-files"
+        "issues": "https://github.com/moonsea-dev/pl-files/issues",
+        "source": "https://github.com/moonsea-dev/pl-files"
     },
     "scripts": {
         "test": "phpunit"

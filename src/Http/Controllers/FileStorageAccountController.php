@@ -1,10 +1,10 @@
 <?php
 
-namespace Coding1688\Files\Http\Controllers;
+namespace Moonsea\Files\Http\Controllers;
 
-use Coding1688\Files\Http\Requests\FileStorageAccountRequest;
-use Coding1688\Files\Http\Resources\FileStorageAccountResource;
-use Coding1688\Files\Management\FileStorageAccountService;
+use Moonsea\Files\Http\Requests\FileStorageAccountRequest;
+use Moonsea\Files\Http\Resources\FileStorageAccountResource;
+use Moonsea\Files\Management\FileStorageAccountService;
 use Illuminate\Http\JsonResponse;
 
 class FileStorageAccountController extends ManagementController

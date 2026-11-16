@@ -1,7 +1,7 @@
 <?php
 
-use Coding1688\Files\FilesServiceProvider;
-use Coding1688\Files\Http\Middleware\AuthorizeManagement;
+use Moonsea\Files\FilesServiceProvider;
+use Moonsea\Files\Http\Middleware\AuthorizeManagement;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Auth\GenericUser;

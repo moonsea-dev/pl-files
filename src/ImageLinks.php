@@ -1,8 +1,8 @@
 <?php
 
-namespace Coding1688\Files;
+namespace Moonsea\Files;
 
-use Coding1688\Files\Models\File;
+use Moonsea\Files\Models\File;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
 

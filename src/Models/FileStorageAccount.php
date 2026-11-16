@@ -1,8 +1,8 @@
 <?php
 
-namespace Coding1688\Files\Models;
+namespace Moonsea\Files\Models;
 
-use Coding1688\Files\StorageRegistry;
+use Moonsea\Files\StorageRegistry;
 use Illuminate\Database\Eloquent\Model;
 
 class FileStorageAccount extends Model

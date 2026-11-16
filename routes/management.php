@@ -1,8 +1,8 @@
 <?php
 
-use Coding1688\Files\Http\Controllers\FileController;
-use Coding1688\Files\Http\Controllers\FileStorageAccountController;
-use Coding1688\Files\Http\Middleware\AuthorizeManagement;
+use Moonsea\Files\Http\Controllers\FileController;
+use Moonsea\Files\Http\Controllers\FileStorageAccountController;
+use Moonsea\Files\Http\Middleware\AuthorizeManagement;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix(config('files.management.prefix', 'files-management'))->name('files.management.')

@@ -2,11 +2,11 @@
 
 [English](README.md) | [简体中文](README.zh_CN.md) | [繁體中文](README.zh_TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
 
-[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/coding1688/pl-files)
+[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/moonsea-dev/pl-files)
 
-## 0.5.0 版本基準
+## 0.6.0 升級說明
 
-三個 Moonsea 套件統一從 `v0.5.0` 重新開始。原標籤及 GitHub Releases 已清理，提交歷史保留。請明確更新 Composer 版本限制及鎖定檔。這是新的版本基準，不是從已移除版本自動升級。
+`v0.6.0` 使用 Composer 套件名稱 `moonsea-dev/pl-files` 和 PHP 命名空間 `Moonsea\Files`。請替換原套件依賴，更新應用程式中的類別引用及已發佈設定，再更新 Composer 鎖定檔並重建設定快取。保留既有 `v0.5.0` 標籤。本次變更套件識別，不變更資料表名稱或設定鍵。
 
 files 初始遷移現在直接建立可為空的 JSON 欄位 `preferred_disks`，獨立新增欄位遷移已移除。現有資料庫不會重新執行初始遷移。使用此基準前，請檢查設定的資料表：缺少該欄位時透過宿主遷移補齊；已有欄位則保留資料。不要對需要保留資料的資料庫執行 `migrate:fresh`。歷史遷移記錄可能仍引用已移除檔案，切換前請檢查回復方案。
 
@@ -32,7 +32,7 @@ files 初始遷移現在直接建立可為空的 JSON 欄位 `preferred_disks`�
 ## 安裝
 
 ```bash
-composer require coding1688/pl-files
+composer require "moonsea-dev/pl-files:^0.6"
 php artisan vendor:publish --tag=files-config
 php artisan migrate
 ```
@@ -40,7 +40,7 @@ php artisan migrate
 若 Composer 設定的套件來源找不到此套件，請先加入原始碼儲存庫再安裝：
 
 ```bash
-composer config repositories.pl-files vcs https://github.com/coding1688/pl-files.git
+composer config repositories.pl-files vcs https://github.com/moonsea-dev/pl-files.git
 ```
 
 Laravel 自動探索 `FilesServiceProvider`。公開本機檔案需設定 `public` 磁碟並執行 `php artisan storage:link`。基本本機安裝不需要雲端帳號或佇列處理程序。
@@ -71,7 +71,7 @@ Laravel 自動探索 `FilesServiceProvider`。公開本機檔案需設定 `publi
 在已授權的控制器操作中：
 
 ```php
-use Coding1688\Files\FileStorage;
+use Moonsea\Files\FileStorage;
 
 $request->validate(['file' => ['required', 'file', 'mimes:jpg,png', 'max:2048']]);
 
@@ -87,7 +87,7 @@ $attributes = $stored->toArray();
 
 `store()` 寫入檔案並回傳 `StoredFile`，不會建立資料庫記錄，也不會執行業務授權或驗證。磁碟、目錄與可見性應由伺服器端決定。依需求儲存回傳的中繼資料；資料庫寫入失敗時清理未使用的檔案。
 
-需要協調上傳與檔案記錄管理時，可將已驗證輸入傳給 `Coding1688\Files\Management\FileService`，或啟用下方管理 API。
+需要協調上傳與檔案記錄管理時，可將已驗證輸入傳給 `Moonsea\Files\Management\FileService`，或啟用下方管理 API。
 
 ## 可選管理 API
 
@@ -194,4 +194,4 @@ composer test
 
 MIT。請見 [LICENSE](LICENSE)。
 
-Copyright © 2026 [coding1688 · Moonsea](https://moonsea.dev).
+Copyright © 2026 [moonsea-dev · Moonsea](https://moonsea.dev).

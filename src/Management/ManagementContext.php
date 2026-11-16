@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding1688\Files\Management;
+namespace Moonsea\Files\Management;
 
 class ManagementContext
 {

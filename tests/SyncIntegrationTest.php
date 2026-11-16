@@ -1,19 +1,19 @@
 <?php
 
-use Coding1688\Files\Console\Commands\SyncCommand;
-use Coding1688\Files\FileStorage;
-use Coding1688\Files\Http\Resources\FileStorageAccountResource;
-use Coding1688\Files\Jobs\FileSyncBatch;
-use Coding1688\Files\Management\FileService;
-use Coding1688\Files\Management\FileStorageAccountService;
-use Coding1688\Files\Management\ManagementContext;
-use Coding1688\Files\Models\File;
-use Coding1688\Files\Models\FileConfiguration;
-use Coding1688\Files\Models\FileStorageAccount;
-use Coding1688\Files\Models\FileSyncTask;
-use Coding1688\Files\StorageRegistry;
-use Coding1688\Files\StorageSynchronizer;
-use Coding1688\Files\UploadConfiguration;
+use Moonsea\Files\Console\Commands\SyncCommand;
+use Moonsea\Files\FileStorage;
+use Moonsea\Files\Http\Resources\FileStorageAccountResource;
+use Moonsea\Files\Jobs\FileSyncBatch;
+use Moonsea\Files\Management\FileService;
+use Moonsea\Files\Management\FileStorageAccountService;
+use Moonsea\Files\Management\ManagementContext;
+use Moonsea\Files\Models\File;
+use Moonsea\Files\Models\FileConfiguration;
+use Moonsea\Files\Models\FileStorageAccount;
+use Moonsea\Files\Models\FileSyncTask;
+use Moonsea\Files\StorageRegistry;
+use Moonsea\Files\StorageSynchronizer;
+use Moonsea\Files\UploadConfiguration;
 use Illuminate\Cache\ArrayStore;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;

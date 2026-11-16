@@ -1,9 +1,9 @@
 <?php
 
-namespace Coding1688\Files\Http\Requests;
+namespace Moonsea\Files\Http\Requests;
 
-use Coding1688\Files\Constants\FileType;
-use Coding1688\Files\UploadConfiguration;
+use Moonsea\Files\Constants\FileType;
+use Moonsea\Files\UploadConfiguration;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Coding1688\Files\Jobs;
+namespace Moonsea\Files\Jobs;
 
-use Coding1688\Files\ModelResolver;
-use Coding1688\Files\StorageSynchronizer;
+use Moonsea\Files\ModelResolver;
+use Moonsea\Files\StorageSynchronizer;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Throwable;

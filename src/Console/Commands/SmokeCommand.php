@@ -1,9 +1,9 @@
 <?php
 
-namespace Coding1688\Files\Console\Commands;
+namespace Moonsea\Files\Console\Commands;
 
-use Coding1688\Files\FileStorage;
-use Coding1688\Files\StorageRegistry;
+use Moonsea\Files\FileStorage;
+use Moonsea\Files\StorageRegistry;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use Throwable;

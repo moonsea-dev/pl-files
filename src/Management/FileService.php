@@ -1,12 +1,12 @@
 <?php
 
-namespace Coding1688\Files\Management;
+namespace Moonsea\Files\Management;
 
-use Coding1688\Files\Constants\FileType;
-use Coding1688\Files\FileStorage;
-use Coding1688\Files\ModelResolver;
-use Coding1688\Files\Models\File;
-use Coding1688\Files\UploadConfiguration;
+use Moonsea\Files\Constants\FileType;
+use Moonsea\Files\FileStorage;
+use Moonsea\Files\ModelResolver;
+use Moonsea\Files\Models\File;
+use Moonsea\Files\UploadConfiguration;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;

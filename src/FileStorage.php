@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding1688\Files;
+namespace Moonsea\Files;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;

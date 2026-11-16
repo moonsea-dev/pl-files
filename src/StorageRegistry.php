@@ -1,10 +1,10 @@
 <?php
 
-namespace Coding1688\Files;
+namespace Moonsea\Files;
 
 use Aws\CommandInterface;
 use Aws\Middleware;
-use Coding1688\Files\Models\FileStorageAccount;
+use Moonsea\Files\Models\FileStorageAccount;
 use Illuminate\Filesystem\AwsS3V3Adapter;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;

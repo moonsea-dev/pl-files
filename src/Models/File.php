@@ -1,11 +1,11 @@
 <?php
 
-namespace Coding1688\Files\Models;
+namespace Moonsea\Files\Models;
 
-use Coding1688\Files\Constants\FileType;
-use Coding1688\Files\FileStorage;
-use Coding1688\Files\ModelResolver;
-use Coding1688\Files\StorageRegistry;
+use Moonsea\Files\Constants\FileType;
+use Moonsea\Files\FileStorage;
+use Moonsea\Files\ModelResolver;
+use Moonsea\Files\StorageRegistry;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;

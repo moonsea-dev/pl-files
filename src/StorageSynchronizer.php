@@ -1,9 +1,9 @@
 <?php
 
-namespace Coding1688\Files;
+namespace Moonsea\Files;
 
-use Coding1688\Files\Jobs\FileSyncBatch;
-use Coding1688\Files\Models\File;
+use Moonsea\Files\Jobs\FileSyncBatch;
+use Moonsea\Files\Models\File;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Cache;
 use RuntimeException;

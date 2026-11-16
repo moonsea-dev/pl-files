@@ -1,7 +1,7 @@
 <?php
 
-use Coding1688\Files\ModelResolver;
-use Coding1688\Files\Models\File;
+use Moonsea\Files\ModelResolver;
+use Moonsea\Files\Models\File;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager;

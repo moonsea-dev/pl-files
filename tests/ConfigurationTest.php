@@ -1,6 +1,6 @@
 <?php
 
-use Coding1688\Files\FilesServiceProvider;
+use Moonsea\Files\FilesServiceProvider;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application;

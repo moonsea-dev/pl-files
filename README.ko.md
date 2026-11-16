@@ -2,11 +2,11 @@
 
 [English](README.md) | [简体中文](README.zh_CN.md) | [繁體中文](README.zh_TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
 
-[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/coding1688/pl-files)
+[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/moonsea-dev/pl-files)
 
-## 버전 0.5.0 기준
+## 0.6.0 마이그레이션
 
-세 Moonsea 패키지는 `v0.5.0`부터 다시 시작합니다. 기존 태그와 GitHub Releases는 삭제하고 커밋 기록은 유지합니다. Composer 버전 제약과 잠금 파일을 명시적으로 갱신하세요. 이는 새로운 버전 기준이며 삭제된 릴리스에서 자동으로 업그레이드되지 않습니다.
+`v0.6.0`의 Composer 패키지 이름은 `moonsea-dev/pl-files`이고 PHP 네임스페이스는 `Moonsea\Files`입니다. 이전 패키지 의존성을 교체하고 애플리케이션의 클래스 참조와 게시된 설정을 수정한 뒤 Composer 잠금 파일과 설정 캐시를 갱신하세요. 기존 `v0.5.0` 태그는 유지합니다. 이번 릴리스는 패키지 식별자를 변경하며 데이터베이스 테이블 이름이나 설정 키는 변경하지 않습니다.
 
 files 초기 마이그레이션이 nullable JSON 열 `preferred_disks`를 직접 생성하며 별도의 열 추가 마이그레이션은 제거되었습니다. 기존 DB에서는 초기 마이그레이션이 다시 실행되지 않습니다. 전환 전에 설정된 테이블을 확인하고, 열이 없으면 호스트 마이그레이션으로 추가하며 이미 있으면 데이터를 유지하세요. 필요한 데이터가 있는 DB에 `migrate:fresh`를 실행하지 마세요. 과거 마이그레이션 기록이 삭제된 파일을 참조할 수 있으므로 전환 전에 롤백 계획을 검토하세요.
 
@@ -32,7 +32,7 @@ Vue 컴포넌트나 관리자 테마는 포함하지 않습니다. 인증, 권�
 ## 설치
 
 ```bash
-composer require coding1688/pl-files
+composer require "moonsea-dev/pl-files:^0.6"
 php artisan vendor:publish --tag=files-config
 php artisan migrate
 ```
@@ -40,7 +40,7 @@ php artisan migrate
 Composer에 설정된 레지스트리에서 패키지를 찾을 수 없다면 설치 전에 소스 저장소를 추가하세요.
 
 ```bash
-composer config repositories.pl-files vcs https://github.com/coding1688/pl-files.git
+composer config repositories.pl-files vcs https://github.com/moonsea-dev/pl-files.git
 ```
 
 Laravel은 `FilesServiceProvider`를 자동 검색합니다. 로컬 파일을 공개하려면 `public` 디스크를 설정하고 `php artisan storage:link`를 실행합니다. 기본 로컬 설치에는 클라우드 계정이나 큐 워커가 필요하지 않습니다.
@@ -71,7 +71,7 @@ Laravel은 `FilesServiceProvider`를 자동 검색합니다. 로컬 파일을 �
 권한이 확인된 컨트롤러 작업 안에서 사용합니다.
 
 ```php
-use Coding1688\Files\FileStorage;
+use Moonsea\Files\FileStorage;
 
 $request->validate(['file' => ['required', 'file', 'mimes:jpg,png', 'max:2048']]);
 
@@ -87,7 +87,7 @@ $attributes = $stored->toArray();
 
 `store()`는 파일을 쓰고 `StoredFile`을 반환하지만 데이터베이스 레코드를 생성하거나 업무 권한 및 입력을 검증하지 않습니다. 디스크, 디렉터리, 공개 범위는 서버에서 선택하세요. 필요한 메타데이터를 저장하고 DB 쓰기가 실패하면 사용하지 않는 파일을 정리하세요.
 
-업로드와 파일 레코드를 함께 관리하려면 검증된 입력을 `Coding1688\Files\Management\FileService`에 전달하거나 아래 관리 API를 활성화하세요.
+업로드와 파일 레코드를 함께 관리하려면 검증된 입력을 `Moonsea\Files\Management\FileService`에 전달하거나 아래 관리 API를 활성화하세요.
 
 ## 선택적 관리 API
 
@@ -194,4 +194,4 @@ composer test
 
 MIT. [LICENSE](LICENSE)를 참고하세요.
 
-Copyright © 2026 [coding1688 · Moonsea](https://moonsea.dev).
+Copyright © 2026 [moonsea-dev · Moonsea](https://moonsea.dev).

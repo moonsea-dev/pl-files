@@ -1,14 +1,14 @@
 <?php
 
-namespace Coding1688\Files\Management;
+namespace Moonsea\Files\Management;
 
-use Coding1688\Files\Jobs\FileSyncBatch;
-use Coding1688\Files\ModelResolver;
-use Coding1688\Files\Models\FileStorageAccount;
-use Coding1688\Files\Models\FileSyncTask;
-use Coding1688\Files\StorageRegistry;
-use Coding1688\Files\StorageSynchronizer;
-use Coding1688\Files\UploadConfiguration;
+use Moonsea\Files\Jobs\FileSyncBatch;
+use Moonsea\Files\ModelResolver;
+use Moonsea\Files\Models\FileStorageAccount;
+use Moonsea\Files\Models\FileSyncTask;
+use Moonsea\Files\StorageRegistry;
+use Moonsea\Files\StorageSynchronizer;
+use Moonsea\Files\UploadConfiguration;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
